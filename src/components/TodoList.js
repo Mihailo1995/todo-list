@@ -6,7 +6,6 @@ export class TodoList extends Component {
         return (
             <div>
                 <h4>Todo List:</h4>
-                <h2>dada</h2>
                 <TodoItem />
             </div>
         );
