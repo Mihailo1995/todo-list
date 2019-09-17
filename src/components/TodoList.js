@@ -11,7 +11,7 @@ export class TodoList extends Component {
                 {items.map((item) => (
                     <TodoItem
                         title={item.title}
-                        id={item.id}
+                        key={item.id}
                         handleDelete={() => handleDelete(item.id)}
                         handleEdit={() => handleEdit(item.id)}
                     />

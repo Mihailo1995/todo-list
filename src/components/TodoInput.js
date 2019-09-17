@@ -21,7 +21,18 @@ export class TodoInput extends Component {
                             onChange={handleChange}
                         />
                     </div>
-                    <button type="submit" className="btn btn-block btn-primary mt-3">Add Item</button>
+                    <button
+                        type="submit"
+                        // if item is "", button will be disabled, bcs Boolean("") = false
+                        disabled={item ? false : true}
+                        className={
+                            editItem
+                                ? "btn btn-block btn-success mt-3"
+                                : "btn btn-block btn-primary mt-3"
+                        }
+                    >
+                        {editItem ? "Edit Item" : "Add Item"}
+                    </button>
                 </form>
             </div>
         );

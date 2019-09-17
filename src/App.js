@@ -20,14 +20,11 @@ export class App extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-
         const newItem = {
             title: this.state.item,
             id: this.state.id
         };
-
         const updatedItems = [...this.state.items, newItem];
-
         this.setState(
             {
                 items: updatedItems,
@@ -40,15 +37,28 @@ export class App extends Component {
     };
 
     clearList = () => {
-        console.log("clear list");
+        this.setState({
+            items: []
+        });
     };
 
     handleDelete = (id) => {
-        console.log(`handle delete id: ${id}`);
+        const filteredItems = this.state.items.filter((item) => item.id !== id);
+        this.setState({
+            items: filteredItems
+        });
     };
 
     handleEdit = (id) => {
-        console.log(`handle edit id: ${id}`);
+        const filteredItems = this.state.items.filter((item) => item.id !== id);
+        // find() method returns the value of the first element in the provided array that satisfies the provided testing function
+        const selectedItem = this.state.items.find((item) => item.id === id);
+        this.setState({
+            items: filteredItems,
+            item: selectedItem,
+            id: id,
+            editItem: true
+        });
     };
 
     render() {
